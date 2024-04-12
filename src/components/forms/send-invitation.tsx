@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../ui/card'
+} from '@/components/ui/card'
 import {
   Form,
   FormControl,
@@ -15,21 +15,21 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form'
+} from '@/components/ui/form'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '../ui/input'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
-import { Button } from '../ui/button'
-import Loading from '../global/loading'
+} from '@/components/ui/select'
+import { Button } from '@/components/ui/button'
+import Loading from '@/components/global/loading'
 import { saveActivityLogsNotification, sendInvitation } from '@/lib/queries'
-import { useToast } from '../ui/use-toast'
+import { useToast } from '@/components/ui/use-toast'
 
 interface SendInvitationProps {
   agencyId: string

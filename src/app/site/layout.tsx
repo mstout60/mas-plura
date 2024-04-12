@@ -7,7 +7,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <main className="h-full">
-        <Navigation />
+        <nav className='mb-20'>
+          <Navigation />
+        </nav>
         {children}
       </main>
     </ClerkProvider>
