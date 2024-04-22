@@ -15,7 +15,7 @@ import {
 import { db } from './db'
 import { z } from 'zod'
 
-//   import Stripe from 'stripe'
+import Stripe from 'stripe'
 
 export type NotificationWithUser =
   | ({
@@ -86,15 +86,15 @@ export const CreateFunnelFormSchema = z.object({
   favicon: z.string().optional(),
 })
 
-  export type PipelineDetailsWithLanesCardsTagsTickets = Prisma.PromiseReturnType<
-    typeof getPipelineDetails
-  >
+export type PipelineDetailsWithLanesCardsTagsTickets = Prisma.PromiseReturnType<
+  typeof getPipelineDetails
+>
 
 export const LaneFormSchema = z.object({
   name: z.string().min(1),
 })
 
-  export type TicketWithTags = Prisma.PromiseReturnType<typeof getTicketsWithTags>
+export type TicketWithTags = Prisma.PromiseReturnType<typeof getTicketsWithTags>
 
 const currencyNumberRegex = /^\d+(\.\d{1,2})?$/
 
@@ -106,9 +106,9 @@ export const TicketFormSchema = z.object({
   }),
 })
 
-  export type TicketDetails = Prisma.PromiseReturnType<
-    typeof _getTicketsWithAllRelations
-  >
+export type TicketDetails = Prisma.PromiseReturnType<
+  typeof _getTicketsWithAllRelations
+>
 
 export const ContactUserFormSchema = z.object({
   name: z.string().min(1, 'Required'),
@@ -135,7 +135,7 @@ export type StripeCustomerType = {
   address: Address
 }
 
-//  export type PricesList = Stripe.ApiList<Stripe.Price>
+export type PricesList = Stripe.ApiList<Stripe.Price>
 
 //   export type FunnelsForSubAccount = Prisma.PromiseReturnType<
 //     typeof getFunnels
