@@ -495,25 +495,28 @@ export const sendInvitation = async (
   email: string,
   agencyId: string
 ) => {
-  const resposne = await db.invitation.create({
-    data: { email, agencyId, role },
-  })
+
+  let response = null
 
   try {
     const invitation = await clerkClient.invitations.createInvitation({
       emailAddress: email,
-      redirectUrl: 'https://masplura.vercel.app/',
+      redirectUrl: process.env.NEXT_PUBLIC_URL,
       publicMetadata: {
         throughInvitation: true,
         role,
       },
+    });
+
+    const response = await db.invitation.create({
+      data: { email, agencyId, role },
     })
   } catch (error) {
     console.log(error)
     throw error
   }
 
-  return resposne
+  return response
 }
 
 export const getMedia = async (subaccountId: string) => {
