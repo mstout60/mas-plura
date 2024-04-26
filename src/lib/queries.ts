@@ -502,7 +502,7 @@ export const sendInvitation = async (
   try {
     const invitation = await clerkClient.invitations.createInvitation({
       emailAddress: email,
-      redirectUrl: process.env.NEXT_PUBLIC_URL,
+      redirectUrl: 'https://masplura.vercel.app/',
       publicMetadata: {
         throughInvitation: true,
         role,
@@ -868,14 +868,14 @@ export const upsertFunnelPage = async (
       content: funnelPage.content
         ? funnelPage.content
         : JSON.stringify([
-            {
-              content: [],
-              id: '__body',
-              name: 'Body',
-              styles: { backgroundColor: 'white' },
-              type: '__body',
-            },
-          ]),
+          {
+            content: [],
+            id: '__body',
+            name: 'Body',
+            styles: { backgroundColor: 'white' },
+            type: '__body',
+          },
+        ]),
       funnelId,
     },
   })

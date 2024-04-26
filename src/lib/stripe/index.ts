@@ -1,6 +1,6 @@
 import Stripe from 'stripe'
 
-export const stripe = new Stripe('sk_test_51P6z5gIJ9U6wZNuBcLKQK6qDFCemZEnVtYkEDYNlNNf6qzhHqxaLIAkkbwVwCKrE4N496GDw4Uljc7kk94AGMdMF00SA1ZEgL2', {
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
     apiVersion: '2024-04-10',
     appInfo: {
         name: 'Plura MAS App',
