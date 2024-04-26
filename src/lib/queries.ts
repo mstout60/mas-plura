@@ -496,7 +496,9 @@ export const sendInvitation = async (
   agencyId: string
 ) => {
 
-  let response = null
+  const response = await db.invitation.create({
+    data: { email, agencyId, role },
+  })
 
   try {
     const invitation = await clerkClient.invitations.createInvitation({
@@ -508,9 +510,7 @@ export const sendInvitation = async (
       },
     });
 
-    const response = await db.invitation.create({
-      data: { email, agencyId, role },
-    })
+
   } catch (error) {
     console.log(error)
     throw error
